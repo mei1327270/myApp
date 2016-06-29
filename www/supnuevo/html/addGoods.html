@@ -1,0 +1,49 @@
+<ion-view  name="add-view">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-title>
+      {{commodity.username}}
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content class="padding">
+    <label class="item item-input">
+      <span class="input-label">商品内码</span>
+      <input type="text" readonly="true">
+      </label>
+    <label class="item item-input">
+      <span class="input-label" >商品条码</span>
+      <input type="text" ng-model="commodity.codigo">
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >商品名称</span>
+      <input type="text" ng-model="commodity.nombre">
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >商品含量</span>
+      <input type="text" ng-model="commodity.sizeValue">
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >含量单位</span>
+      <select ng-model="commodity.sizeUnited" ng-options="size.value as size.label for size in sizeUnit" ng-change="changeSizeUnit()">
+        <option value="">请选择...</option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >比价单位</span>
+      <select ng-model="commodity.scaleUnited" ng-options="scale.label as scale.value for scale in scaleUnit">
+        <option value="">请选择...</option>
+      </select>
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >商品税类</span>
+        <select ng-model="commodity.taxId" ng-options="index.value as index.label for index in commodityTax">
+          <option value="">请选择...</option>
+        </select>
+    </label>
+    <button class="button button-block button-calm" ng-click="addSupnuevoCommonCommodity()">
+      确认
+    </button>
+    <button class="button button-block button-assertive" ng-click="goBack()">
+      返回
+    </button>
+  </ion-content>
+</ion-view>

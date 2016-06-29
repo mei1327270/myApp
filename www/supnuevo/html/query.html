@@ -1,0 +1,88 @@
+<ion-view  name="query-view">
+  <ion-nav-bar class="bar-positive" align-title="center">
+    <ion-nav-title>
+      {{user.username}}
+    </ion-nav-title>
+  </ion-nav-bar>
+  <ion-content class="padding" onscroll="false">
+    <label class="item item-input">
+      <span>请输入条码最后四位</span>
+      <input type="tel" ng-model="goods.codeNum" maxlength="4" ng-change="queryGoodsCode()">
+      <i class="icon ion-close-circled" style="font-size:30px" on-tap="doClearGoodCode()" ng-if="goods.codeNum"></i>
+    </label>
+    <div class="button-bar button-stable" >
+      <button class="button" >原价位</button>
+      <button class="button">建议价位</button>
+      <button class="button">固定价位</button>
+    </div>
+    <div class="button-bar bar-positive" >
+      <button class="button" ng-click="updatePrice()">{{selectedCodeInfo.oldPrice}}</button>
+      <button class="button"></button>
+      <button class="button"></button>
+    </div>
+<!--    <p>点击下面条码或点击添加新商品</p>-->
+<!--    <label class="item item-input item-select" style="padding-left:20px">
+      <div class="input-label">
+        商品条码
+      </div>
+      <select ng-model="selectedCode.codeNum" ng-options="code.value as code.value for code in barCodes" ng-change="func()">
+        <option value="">请选择...</option>
+      </select>
+    </label>-->
+    <label class="item item-input">
+      <span>商品条码:{{selectedCode.codeNum}}</span>
+    </label>
+    <label class="item item-input">
+      <span>商品名称:{{selectedCodeInfo.nombre}}</span>
+    </label>
+    <label class="item item-input">
+      <span class="input-label" >更新价位</span>
+      <input type="text" ng-model="selectedCodeInfo.priceShow" ng-blur="verify()" ng-change="verify1()">
+      <i class="icon ion-close-circled" style="font-size:30px" on-tap="doClearCodeNum()" ng-if="selectedCodeInfo.priceShow"></i>
+    </label>
+    <div class="button-bar">
+      <button class="{{class.class1}}" ng-click="updatePrintType1()">标签</button>
+      <button class="{{class.class2}}" ng-click="updatePrintType2()">大折扣</button>
+      <button class="{{class.class3}}" ng-click="updatePrintType3()">中折扣</button>
+      <button class="{{class.class4}}" ng-click="updatePrintType4()">小折扣</button>
+</div>
+    <div class="button-bar bar-positive" >
+      <button class="button" ng-click="addIVA()">+IVA</button>
+      <button class="button" ng-click="addPercentage1()">+10%</button>
+      <button class="button" ng-click="addPercentage2()">+5%</button>
+      <button class="button" ng-click="zero()">.00</button>
+    </div>
+    <div class="button-bar bar-positive" >
+      <button class="button" ng-click="reduceIVA()">-IVA</button>
+      <button class="button" ng-click="reducePercentage1()">-10%</button>
+      <button class="button" ng-click="reducePercentage2()">-5%</button>
+      <button class="button" ng-click="zero1()">0.50</button>
+    </div>
+      <!--<ion-item>-->
+          <!--<span >{{selectedCodeInfo.codigo}}</span>-->
+      <!--</ion-item>-->
+    <p></p>
+    <div class="button-bar bar-positive">
+      <button class="button" ng-click="savePrice()">
+        保存
+      </button>
+      <button class="button" ng-click="addGoods()">
+        添加
+      </button>
+    </div>
+
+  </ion-footer-bar>
+  </ion-content>
+  <script id="codeNum.html" type="text/ng-template">
+    <div class = "modal">
+      <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="code in barCodes" ng-click="func(code.value)">
+          {{code.value}}
+        </ion-item>
+      </ion-list>
+      </ion-content>
+    </div>
+  </script>
+</ion-view>
+

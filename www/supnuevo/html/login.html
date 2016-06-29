@@ -1,0 +1,45 @@
+
+<ion-view  name="login-view">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-title>
+      supnuevo
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="padding">
+      <div class="card">
+        <div class="item item-image">
+          <img src="supnuevo/icon/cart.png" style="width:200px">
+        </div>
+      </div>
+        <label class="item item-input">
+            <span class="input-label" >用户名</span>
+            <input type="text" ng-model="user.username">
+          <i class="icon ion-close-circled" style="font-size:30px" ng-if="user.username" on-tap="doClear1()"></i>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">密码</span>
+            <input type="password" ng-model="user.password">
+          <i class="icon ion-close-circled" style="font-size:30px" ng-if="user.password" on-tap="doClear2()"></i>
+        </label>
+        <button class="button button-block button-calm" ng-click="goQuery()">
+            登录
+        </button>
+      <!--<button class="button button-block button-assertive"ng-click="doPhoto()">-->
+        <!--拍照-->
+      <!--</button>-->
+    <!--<img  ng-src="{{imageSrc}}" class="full-image">-->
+      <!--<script id="verifyNameAndPassWord.html" type="text/ng-template">-->
+        <!--<ion-modal-view style="">-->
+          <!--<span>aa</span>-->
+        <!--</ion-modal-view>-->
+
+      <!--</script>-->
+
+    </ion-content>
+
+
+
+
+    </ion-view>
+
